@@ -46,17 +46,16 @@ install(EXPORT cblas-targets
   )
 
 
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/cmake/cblas-config-version.cmake.in
-  ${LAPACK_BINARY_DIR}/cblas-config-version.cmake @ONLY)
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/cmake/cblas-config-build.cmake.in
-  ${LAPACK_BINARY_DIR}/cblas-config.cmake @ONLY)
-
-
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/cblas.pc.in ${CMAKE_CURRENT_BINARY_DIR}/cblas.pc @ONLY)
   install(FILES
   ${CMAKE_CURRENT_BINARY_DIR}/cblas.pc
   DESTINATION ${PKG_CONFIG_DIR}
   )
+
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/cmake/cblas-config-version.cmake.in
+  ${LAPACK_BINARY_DIR}/cblas-config-version.cmake @ONLY)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/cmake/cblas-config-build.cmake.in
+  ${LAPACK_BINARY_DIR}/cblas-config.cmake @ONLY)
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/cmake/cblas-config-install.cmake.in
   ${CMAKE_CURRENT_BINARY_DIR}/CMakeFiles/cblas-config.cmake @ONLY)
